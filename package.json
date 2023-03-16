@@ -1,0 +1,39 @@
+{
+  "name": "chatbot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_INSEPCT=true & next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ably-labs/react-hooks": "^2.1.0",
+    "@chatscope/chat-ui-kit-react": "^1.10.1",
+    "@fingerprintjs/fingerprintjs-pro-react": "^2.3.0",
+    "@pinecone-database/pinecone": "^0.0.10",
+    "ably": "^1.2.5-beta.1",
+    "bottleneck": "^2.19.5",
+    "cheerio": "^1.0.0-rc.12",
+    "langchain": "^0.0.30",
+    "next": "13.1.6",
+    "node-spider": "^1.4.1",
+    "pg": "^8.10.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^8.0.5",
+    "sequelize": "^6.29.2",
+    "sequelize-cockroachdb": "^6.0.5",
+    "timeago.js": "^4.0.2",
+    "turndown": "^7.1.1",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.6.6",
+    "@types/react": "18.0.28",
+    "eslint": "8.34.0",
+    "eslint-config-next": "13.1.6",
+    "typescript": "4.9.5"
+  }
+}
