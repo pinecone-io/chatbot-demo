@@ -1,24 +1,18 @@
-import { OpenAI } from "langchain/llms";
-import { templates } from './templates'
 import { LLMChain, PromptTemplate } from "langchain";
-// import { ChainValues } from "langchain/chains";
-const llm = new OpenAI({ concurrency: 10, temperature: 0, modelName: "gpt-3.5-turbo" });
+import { OpenAI } from "langchain/llms";
+import { templates } from './templates';
 
+const llm = new OpenAI({ concurrency: 10, temperature: 0, modelName: "gpt-3.5-turbo" });
 const template = templates.summarizerTemplate;
+
 const promptTemplate = new PromptTemplate({
   template,
   inputVariables: ["document", "inquiry"],
 });
 
 const chunkSubstr = (str: string, size: number) => {
-  const numChunks = Math.ceil(str.length / size)
-  const chunks = new Array(numChunks)
-
-  for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
-    chunks[i] = str.substr(o, size)
-  }
-
-  return chunks
+  const numChunks = Math.ceil(str.length / size);
+  return Array.from({ length: numChunks }, (_, i) => str.substring(i * size, (i + 1) * size));
 }
 
 const summarize = async (document: string, inquiry: string, onSummaryDone: Function) => {
@@ -66,4 +60,4 @@ const summarizeLongDocument = async (document: string, inquiry: string, onSummar
   }
 }
 
-export { summarizeLongDocument }
+export { summarizeLongDocument };

@@ -12,7 +12,7 @@ import { uuid } from 'uuidv4';
 import { summarizeLongDocument } from './summarizer';
 
 import { ConversationLog } from './conversationLog';
-import { Metadata, getMatchesFromEmbeddings } from './embeddings';
+import { Metadata, getMatchesFromEmbeddings } from './matches';
 import { templates } from './templates';
 
 

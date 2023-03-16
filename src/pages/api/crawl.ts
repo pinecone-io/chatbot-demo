@@ -1,12 +1,11 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { PineconeClient, Vector } from "@pinecone-database/pinecone";
-import { Crawler, Page } from '../../crawler'
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
+import Bottleneck from "bottleneck";
 import { Document } from "langchain/document";
 import { OpenAIEmbeddings } from "langchain/embeddings";
-import Bottleneck from "bottleneck";
-import { uuid } from "uuidv4";
 import { TokenTextSplitter } from "langchain/text_splitter";
+import { NextApiRequest, NextApiResponse } from "next";
+import { uuid } from "uuidv4";
+import { Crawler, Page } from '../../crawler';
 
 const limiter = new Bottleneck({
   minTime: 2000
@@ -42,12 +41,16 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Response>
 ) {
+  if (!process.env.PINECONE_INDEX_NAME) {
+    res.status(500).json({ message: "PINECONE_INDEX_NAME not set" })
+    return
+  }
 
   const { query } = req;
-  const { urls: urlString, limit, indexName } = query;
+  const { urls: urlString, limit } = query;
   const urls = (urlString as string).split(",");
   const crawlLimit = parseInt(limit as string) || 100;
-  const pineconeIndexName = indexName as string || "crawl"
+  const pineconeIndexName = process.env.PINECONE_INDEX_NAME
 
   if (!pinecone) {
     await initPineconeClient();
