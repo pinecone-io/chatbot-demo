@@ -1,3 +1,5 @@
+import 'styles/global.scss'
+
 import type { AppProps } from "next/app";
 import { FpjsProvider } from "@fingerprintjs/fingerprintjs-pro-react";
 import { configureAbly } from "@ably-labs/react-hooks";
@@ -17,12 +19,12 @@ const fpjsPublicApiKey = process.env.FINGERPRINT as string;
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <FpjsProvider
-      loadOptions={{
-        apiKey: fpjsPublicApiKey,
-      }}
-    >
-      <Component {...pageProps} />
-    </FpjsProvider>
+        <FpjsProvider
+            loadOptions={{
+                apiKey: fpjsPublicApiKey,
+            }}
+            >
+            <Component {...pageProps} />
+        </FpjsProvider>
   );
 }

@@ -1,0 +1,21 @@
+.aave {
+  --primary-color: rgb(46, 186, 198);
+  --bg-color: rgb(27, 32, 48);
+  --text-color: #f1f1f3;
+  --link-color: #f1f1f3;
+  --heading-color: #f1f1f3;
+  --border-color: #d1d5da;
+  --header-bg: rgb(56, 61, 81);
+  --block-bg: rgb(56, 61, 81);
+
+  #topnav {
+    background: linear-gradient(to right, rgb(46, 186, 198), rgb(182, 80, 158), rgb(46, 186, 198), rgb(182, 80, 158));
+    border-image-source: linear-gradient(to left, #b6509e, #2ebac6);
+    padding-bottom: 4px;
+    border-radius: 0;
+    .header-main-wrapper {
+      margin-top: 0;
+      background: rgb(56, 61, 81);
+    }
+  }
+}

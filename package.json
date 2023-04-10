@@ -20,6 +20,7 @@
     "cheerio": "^1.0.0-rc.12",
     "exponential-backoff": "^3.1.1",
     "langchain": "^0.0.51",
+    "nema-chat-ui-kit-styles": "^1.4.2",
     "next": "13.1.6",
     "node-spider": "^1.4.1",
     "p-queue": "^7.3.4",
@@ -37,8 +38,12 @@
   "devDependencies": {
     "@types/pg": "^8.6.6",
     "@types/react": "18.0.28",
+    "autoprefixer": "^10.4.14",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
+    "postcss": "^8.4.21",
+    "sass": "^1.61.0",
+    "tailwindcss": "^3.3.1",
     "prettier": "^2.8.7",
     "ts-node": "^10.9.1",
     "typescript": "4.9.5"

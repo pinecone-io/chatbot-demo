@@ -5,7 +5,6 @@ import ReactMarkdown from 'react-markdown';
 import * as timeago from 'timeago.js';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, ConversationHeader, TypingIndicator } from '@chatscope/chat-ui-kit-react';
 
-import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { useChannel } from '@ably-labs/react-hooks';
 import { Types } from 'ably';
 
@@ -101,8 +100,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div style={{ position: 'relative', height: '98vh', overflow: 'hidden' }}>
+      <main>
+        <div className={'compound'} style={{ position: 'relative', height: '98vh', overflow: 'hidden' }}>
           <MainContainer>
             <ChatContainer>
               <ConversationHeader>

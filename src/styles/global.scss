@@ -1,0 +1,36 @@
+
+
+@import './chat-ui-kit-styles/variables';
+
+@import "./chat-ui-kit-styles/functions";
+
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/main-container";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/message";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/message-group";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/message-separator";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/message-list";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/avatar";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/avatar-group";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/message-input";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/input-toolbox";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/chat-container";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/typing-indicator";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/conversation-header";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/conversation";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/conversation-list";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/status";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/sidebar";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/expansion-panel";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/search";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/buttons";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/loader";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/overlay";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/status-list";
+@import "../node_modules/nema-chat-ui-kit-styles/themes/default/components/perfect-scrollbar";
+
+
+@import 'protocols/aave.module';
+@import "protocols/compound.module";
+@import "protocols/uniswap.module";
+@import "protocols/unstoppable.module";
+
