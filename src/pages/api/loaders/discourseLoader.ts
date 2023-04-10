@@ -1,6 +1,7 @@
+import { Document as LGCDocument } from 'langchain/dist/document';
+import { PageMetadata } from 'pages/api/contents/projectsContents';
+import { split } from 'pages/api/loaders/splitter';
 import puppeteer, { Browser, Page } from 'puppeteer';
-
-const discourseUrl = 'https://gov.uniswap.org/latest';
 
 // https://stackoverflow.com/a/53527984/440432
 async function autoScroll(page: Page): Promise<void> {
@@ -44,7 +45,11 @@ async function getHrefs(page: Page, selector: string): Promise<string[]> {
   return (await page.$$eval(selector, (anchors) => [].map.call(anchors, (a: HTMLAnchorElement) => a.href))) as string[];
 }
 
-async function discourse() {
+export interface DiscourseThread {
+  url: string;
+  contents: string;
+}
+async function getAllThreads(discourseUrl: string): Promise<DiscourseThread[]> {
   const browser = await puppeteer.launch({
     headless: false,
   });
@@ -59,23 +64,27 @@ async function discourse() {
 
   const hrefs: string[] = await getHrefs(page, 'tr.topic-list-item > td.main-link > span > a');
 
-  // console.log(hrefs);
-
-  const firstTen = hrefs.slice(0, 10);
-
-  console.log('firstTen : ', firstTen);
-
-  for (const url of firstTen) {
+  const allPageContents: DiscourseThread[] = [];
+  for (const url of hrefs) {
     const content = await getPageDetails(browser, url);
     console.log('content : ', content);
+    allPageContents.push({ url, contents: content || '' });
   }
 
-  await page.screenshot({
-    path: 'yoursite.png',
-    fullPage: true,
-  });
-
   await browser.close();
+
+  return allPageContents;
 }
 
-discourse();
+async function getAllDiscourseDocs(discourseUrl: string): Promise<LGCDocument<PageMetadata>[]> {
+  const allPageContents = await getAllThreads(discourseUrl);
+
+  const docs: LGCDocument<Omit<PageMetadata, 'chunk'>>[] = allPageContents.map(
+    (pageContent) =>
+      new LGCDocument({
+        pageContent: pageContent.contents,
+        metadata: { source: pageContent.url, url: pageContent.url, text: pageContent.contents },
+      })
+  );
+  return split(docs);
+}

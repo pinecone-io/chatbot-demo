@@ -1,6 +1,6 @@
-import { Content, ContentType, Gitbook, Github, WebArticle } from 'pages/api/contents/projectsContents';
+import { Content, ContentType, GitbookContent, GithubContent, WebArticleContent } from 'pages/api/contents/projectsContents';
 
-const uniswapArticles: WebArticle[] = [
+const uniswapArticles: WebArticleContent[] = [
   {
     id: 'uniswap-impermanent-loss-whiteboardcrypto',
     url: 'https://whiteboardcrypto.com/impermanent-loss-calculator',
@@ -33,18 +33,19 @@ const uniswapArticles: WebArticle[] = [
     type: ContentType.ARTICLE,
   },
 ];
-const uniswapGitbooks: Gitbook[] = [
+const uniswapGitbooks: GitbookContent[] = [
   {
     id: 'uniswap-v3-gitbook',
     type: ContentType.GITBOOK,
     url: 'https://docs.uniswap.org/',
   },
 ];
-const uniswapGithub: Github[] = [
+const uniswapGithub: GithubContent[] = [
   {
     id: 'uniswap-v3-github',
     type: ContentType.GITHUB,
     url: 'https://github.com/Uniswap/v3-core',
+    branch: 'main',
   },
 ];
 

@@ -13,15 +13,23 @@ export interface Content {
   url: string;
 }
 
-export interface WebArticle extends Content {
+export interface WebArticleContent extends Content {
   type: ContentType.ARTICLE;
   xpath: string;
 }
 
-export interface Gitbook extends Content {
+export interface GitbookContent extends Content {
   type: ContentType.GITBOOK;
 }
 
-export interface Github extends Content {
+export interface GithubContent extends Content {
   type: ContentType.GITHUB;
+  branch: string;
+}
+
+export interface PageMetadata {
+  chunk: string;
+  text: string;
+  url: string;
+  source: string;
 }

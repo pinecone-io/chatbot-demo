@@ -2,57 +2,45 @@
 
 import * as dotenv from 'dotenv';
 import { Document as LGCDocument } from 'langchain/document';
-import { GitbookLoader, GithubRepoLoader, PuppeteerWebBaseLoader } from 'langchain/document_loaders';
-import { RecursiveCharacterTextSplitter } from 'langchain/text_splitter';
-import { WebArticle } from 'pages/api/contents/projectsContents';
+import { PuppeteerWebBaseLoader } from 'langchain/document_loaders';
+import { PageMetadata, WebArticleContent } from 'pages/api/contents/projectsContents';
+import { split } from 'pages/api/loaders/splitter';
 import { Browser, Page } from 'puppeteer';
 
 dotenv.config();
 
-async function split(docs: LGCDocument[]) {
-  const splitter = new RecursiveCharacterTextSplitter({
-    chunkSize: 1000,
-    chunkOverlap: 200,
+export async function loadWebPage(url: WebArticleContent): Promise<LGCDocument<PageMetadata>[]> {
+  const loader = new PuppeteerWebBaseLoader(url.url, {
+    launchOptions: {
+      headless: true,
+    },
+    gotoOptions: {
+      waitUntil: 'networkidle2',
+    },
+    async evaluate(page: Page, browser: Browser): Promise<string> {
+      const [element] = await page.$x(url.xpath);
+      await page.waitForXPath(url.xpath);
+      const contents: string = await page.evaluate((el) => el.textContent as string, element);
+      console.log('contents : ', contents);
+      return contents;
+    },
+  });
+  const docs: LGCDocument<Omit<PageMetadata, 'chunk'>>[] = (await loader.load()).map((doc): LGCDocument<Omit<PageMetadata, 'chunk'>> => {
+    const metadata: Omit<PageMetadata, 'chunk'> = {
+      url: url.url,
+      text: doc.pageContent,
+      source: url.url,
+    };
+    return { ...doc, metadata };
   });
 
-  const output = await splitter.splitDocuments(docs);
-  return output;
+  return await split(docs);
 }
 
-async function loadDocuments(webPages: WebArticle[]): Promise<LGCDocument[]> {
+export async function loadWebPages(webPages: WebArticleContent[]): Promise<LGCDocument[]> {
   let allDocs: LGCDocument[] = [];
   for (const url of webPages) {
-    let docs: LGCDocument[];
-    if (url.type == 'article') {
-      const loader = new PuppeteerWebBaseLoader(url.url, {
-        launchOptions: {
-          headless: true,
-        },
-        gotoOptions: {
-          waitUntil: 'networkidle2',
-        },
-        async evaluate(page: Page, browser: Browser): Promise<string> {
-          const [element] = await page.$x(url.xpath);
-          await page.waitForXPath(url.xpath);
-          const contents: string = await page.evaluate((el) => el.textContent as string, element);
-          console.log('contents : ', contents);
-          return contents;
-        },
-      });
-      docs = await loader.load();
-    } else if (url.type == 'github') {
-      const githubLoader = new GithubRepoLoader(url.url, { branch: 'main', recursive: false, unknown: 'warn' });
-      docs = await githubLoader.load();
-    } else {
-      const gitbookLoader = new GitbookLoader(url.url, {
-        shouldLoadAllPaths: true,
-      });
-
-      docs = await gitbookLoader.load();
-    }
-    console.log('downloaded document : ', url);
-
-    const output = await split(docs);
+    const output = await loadWebPage(url);
 
     allDocs = allDocs.concat(output);
   }
