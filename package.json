@@ -17,6 +17,7 @@
     "bottleneck": "^2.19.5",
     "cheerio": "^1.0.0-rc.12",
     "langchain": "^0.0.30",
+    "nema-chat-ui-kit-styles": "^1.4.2",
     "next": "13.1.6",
     "node-spider": "^1.4.1",
     "pg": "^8.10.0",

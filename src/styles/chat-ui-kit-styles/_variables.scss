@@ -2,11 +2,7 @@
 //
 //
 
-@import "helpers/functions";
-@import "../protocols/aave.module.scss";
-@import "../protocols/compound.module.scss";
-@import "../protocols/uniswap.module.scss";
-@import "../protocols/unstoppable.module.scss";
+@import "./../node_modules/nema-chat-ui-kit-styles/themes/default/helpers/functions";
 
 // Main class prefix
 $prefix: "cs" !default;
