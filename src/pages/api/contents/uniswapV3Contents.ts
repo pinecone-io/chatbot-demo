@@ -1,22 +1,4 @@
-export enum ContentType {
-  IMAGE = 'image',
-  PDF_DOCUMENT = 'pdf_document',
-  ARTICLE = 'article',
-  DISCOURSE = 'discourse',
-  GITBOOK = 'gitbook',
-  GITHUB = 'github',
-}
-
-export interface Content {
-  id: string;
-  type: ContentType;
-  url: string;
-}
-
-export interface WebArticle extends Content {
-  type: ContentType.ARTICLE;
-  xpath: string;
-}
+import { Content, ContentType, Gitbook, Github, WebArticle } from 'pages/api/contents/projectsContents';
 
 const uniswapArticles: WebArticle[] = [
   {
@@ -51,5 +33,19 @@ const uniswapArticles: WebArticle[] = [
     type: ContentType.ARTICLE,
   },
 ];
+const uniswapGitbooks: Gitbook[] = [
+  {
+    id: 'uniswap-v3-gitbook',
+    type: ContentType.GITBOOK,
+    url: 'https://docs.uniswap.org/',
+  },
+];
+const uniswapGithub: Github[] = [
+  {
+    id: 'uniswap-v3-github',
+    type: ContentType.GITHUB,
+    url: 'https://github.com/Uniswap/v3-core',
+  },
+];
 
-const uniswapContents: Content[] = [...uniswapArticles];
+export const uniswapV3Contents: Content[] = [...uniswapArticles, ...uniswapGitbooks, ...uniswapGithub];
