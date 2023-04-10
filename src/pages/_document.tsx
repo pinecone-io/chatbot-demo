@@ -6,8 +6,8 @@ export default function Document() {
       <Head>
         <link
           rel="stylesheet"
-          href="../styles/chat-ui-kit-styles/dist/default/styles.min.css"
-        //   integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"
+          href="https://cdn.jsdelivr.net/npm/katex@0.15.0/dist/katex.min.css"
+          integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn"
         />
       </Head>
       <body>

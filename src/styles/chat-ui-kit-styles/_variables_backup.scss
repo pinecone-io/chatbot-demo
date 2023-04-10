@@ -2,7 +2,7 @@
 //
 //
 
-@import "./functions";
+@import "helpers/functions";
 
 // Main class prefix
 $prefix: "cs" !default;
@@ -28,9 +28,10 @@ $default-font-family: Helvetica Neue, Segoe UI, Helvetica, Arial, sans-serif;
 // Colors
 //
 
-$color-primary: #{var(--primary-color)} !default;
-$color-primary-light: #{var(--primary-color)} !default;
-$color-primary-dark: #{var(--primary-color)} !default;
+$color-primary: #c6e3fa !default;
+$color-primary-light: #f6fbff !default;
+$color-primary-dark: #6ea9d7 !default;
+$color-primary-dark: #6EAAD8 !default;
 
 $color-secondary: #91ECEC !default;
 $color-secondary-light: #C2F9F9 !default;
@@ -40,10 +41,10 @@ $color-secondary-dark: #64D3D3 !default;
 // http://marcodiiga.github.io/rgba-to-rgb-conversion
 // Hex values are calculated based on white background 
 // If you change background color rgb color will change, that is why its better to use rgba with opacity!
-$color-text: #{var(--text-color)} !default; // #212121
-$color-text-medium: #{var(--text-color)} !default; // #666666
-$color-text-disabled: #{var(--text-color)} !default; // #9e9e9e
-$color-text-inverted: #{var(--text-color)};
+$color-text: rgba(0, 0, 0, .87) !default; // #212121
+$color-text-medium: rgba(0, 0, 0, .60) !default; // #666666
+$color-text-disabled: rgba(0, 0, 0, .38) !default; // #9e9e9e
+$color-text-inverted: invert($color-text); 
 
 // Base colors
 //
@@ -51,12 +52,12 @@ $color-text-inverted: #{var(--text-color)};
 $color-white: #fff !default;
 $color-black: #000 !default;
 
-$default-bg-color: #{var(--bg-color)} !default;
+$default-bg-color: $color-white !default;
 
 // Element colors
 //
 
-$default-border-color: #{var(--border-color)} !default;
+$default-border-color: var(--border-color);
 
 // State colors
 //

@@ -1,3 +1,5 @@
+import 'styles/global.scss'
+
 import type { AppProps } from "next/app";
 import { FpjsProvider } from "@fingerprintjs/fingerprintjs-pro-react";
 import { configureAbly } from "@ably-labs/react-hooks";
