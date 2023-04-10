@@ -1,0 +1,107 @@
+{
+  "name": "@chatscope/chat-ui-kit-styles",
+  "version": "1.4.0",
+  "description": "SCSS themes for @chatscope/chat-ui-kit-react library",
+  "license": "MIT",
+  "homepage": "https://chatscope.io/",
+  "keywords": [
+    "chat",
+    "styles",
+    "css",
+    "scss",
+    "ui",
+    "user interface",
+    "components",
+    "ui kit",
+    "communication",
+    "conversation",
+    "toolkit",
+    "library",
+    "skin",
+    "theme",
+    "frontend",
+    "reusable",
+    "responsive"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chatscope/chat-ui-kit-styles.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "11.0.0",
+    "@commitlint/config-conventional": "11.0.0",
+    "@semantic-release/changelog": "5.0.1",
+    "@semantic-release/git": "9.0.0",
+    "@semantic-release/github": "7.1.1",
+    "autoprefixer": "9.8.6",
+    "chokidar-cli": "3.0.0",
+    "husky": "4.3.0",
+    "npm-run-all": "4.1.5",
+    "postcss-cli": "7.1.2",
+    "sass": "1.39.2",
+    "semantic-release": "17.2.4"
+  },
+  "scripts": {
+    "build:clean": "rm -Rf dist",
+    "build:autoprefixer": "postcss dist/**/*.css -r -m --no-map --use autoprefixer",
+    "build:sass": "node ./scripts/build-all",
+    "build": "npm-run-all -s build:clean build:sass build:autoprefixer",
+    "pack": "yarn pack",
+    "watch": "chokidar 'themes/**/*.scss' -c 'npm-run-all -s build:sass build:autoprefixer'"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "files": [
+    "dist",
+    "scripts",
+    "themes"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "release": {
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "angular",
+          "releaseRules": [
+            {
+              "type": "docs",
+              "scope": "readme",
+              "release": "patch"
+            },
+            {
+              "scope": "no-release",
+              "release": false
+            }
+          ]
+        }
+      ],
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md",
+          "changelogTitle": "# @chatscope/chat-ui-kit-styles changelog"
+        }
+      ],
+      "@semantic-release/github",
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ]
+    ]
+  }
+}

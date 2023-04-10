@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './chat-ui-kit-styles/themes/default/variables';
+
+html {
+  font-family: "mediumllweb", "sans-serif";
+}
+p > a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
