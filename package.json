@@ -6,21 +6,26 @@
     "dev": "NODE_INSEPCT=true & next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "index": "ts-node --esm ./src/indexData.ts"
   },
   "dependencies": {
     "@ably-labs/react-hooks": "^2.1.0",
     "@chatscope/chat-ui-kit-react": "^1.10.1",
+    "@dqbd/tiktoken": "^1.0.4",
     "@fingerprintjs/fingerprintjs-pro-react": "^2.3.0",
     "@pinecone-database/pinecone": "^0.0.10",
     "ably": "^1.2.5-beta.1",
     "bottleneck": "^2.19.5",
     "cheerio": "^1.0.0-rc.12",
-    "langchain": "^0.0.30",
+    "exponential-backoff": "^3.1.1",
+    "langchain": "^0.0.51",
     "nema-chat-ui-kit-styles": "^1.4.2",
     "next": "13.1.6",
     "node-spider": "^1.4.1",
+    "p-queue": "^7.3.4",
     "pg": "^8.10.0",
+    "puppeteer": "^19.8.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
@@ -39,6 +44,8 @@
     "postcss": "^8.4.21",
     "sass": "^1.61.0",
     "tailwindcss": "^3.3.1",
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
     "typescript": "4.9.5"
   }
 }
