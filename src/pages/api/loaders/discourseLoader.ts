@@ -1,4 +1,4 @@
-import { Document as LGCDocument } from 'langchain/dist/document';
+import { Document as LGCDocument } from 'langchain/document';
 import { PageMetadata } from 'pages/api/contents/projectsContents';
 import { split } from 'pages/api/loaders/splitter';
 import puppeteer, { Browser, Page } from 'puppeteer';
