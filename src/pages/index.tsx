@@ -4,7 +4,6 @@ import { useVisitorData } from '@fingerprintjs/fingerprintjs-pro-react';
 import ReactMarkdown from 'react-markdown';
 import * as timeago from 'timeago.js';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, ConversationHeader, TypingIndicator } from '@chatscope/chat-ui-kit-react';
-
 import { useChannel } from '@ably-labs/react-hooks';
 import { Types } from 'ably';
 
@@ -101,7 +100,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className={'compound'} style={{ position: 'relative', height: '98vh', overflow: 'hidden' }}>
+        <div className={'uniswap'} style={{ position: 'relative', height: '98vh', overflow: 'hidden' }}>
           <MainContainer>
             <ChatContainer>
               <ConversationHeader>
@@ -109,7 +108,7 @@ export default function Home() {
                 <ConversationHeader.Content userName="Nema Chatbot" info={statusMessage} />
               </ConversationHeader>
 
-              <MessageList typingIndicator={botIsTyping ? <TypingIndicator content="Nema is typing" /> : null}>
+              <MessageList typingIndicator={botIsTyping ? <TypingIndicator content="Nema is typing" style={{backgroundColor: 'var(--bg-color)'}} /> : null}>
                 {conversation.map((entry, index) => {
                   return (
                     <Message
@@ -132,6 +131,7 @@ export default function Home() {
               </MessageList>
               <MessageInput
                 placeholder="Type message here"
+                style={{borderColor: 'var(--border-color'}}
                 onSend={submit}
                 onChange={(e, text) => {
                   setText(text);
