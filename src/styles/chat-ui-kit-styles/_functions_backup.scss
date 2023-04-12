@@ -1,0 +1,17 @@
+@function rgba-to-rgb($rgba, $background: #fff) {
+    @return $rgba
+}
+  
+@function color-by-background($bg-color, $text-color, $inverted-text-color) {
+    @return $text-color;
+}
+  
+@function darken($rgba, $amount) {
+    @return $rgba;
+}
+  
+  
+@function lighten($rgba, $amount) {
+    @return $rgba;
+}
+  

@@ -18,9 +18,7 @@ class ConversationLog {
 
   public async addEntry({ entry, speaker }: { entry: string, speaker: string }) {
     try {
-      await sequelize.query(`INSERT INTO conversations (user_id, entry, speaker) VALUES (?, ?, ?) ON CONFLICT (created_at) DO NOTHING`, {
-        replacements: [this.userId, entry, speaker],
-      });
+      await sequelize.query(`INSERT INTO conversations (user_id, entry, speaker) VALUES ('${this.userId}', '${entry}', '${speaker}') ON CONFLICT (created_at) DO NOTHING`);
     } catch (e) {
       console.log(`Error adding entry: ${e}`)
     }
