@@ -53,6 +53,8 @@ $color-black: #000 !default;
 
 $default-bg-color: #{var(--bg-color)} !default;
 
+$default-link-color: #{var(--link-color)} !default;
+
 // Element colors
 //
 
@@ -433,7 +435,7 @@ $show-message-outgoing-avatar: false !default;
 $show-message-outgoing-single-avatar: true !default;
 $show-message-outgoing-first-avatar: false !default;
 $show-message-outgoing-last-avatar: true !default;
-
+ 
 // Borders
 $message-base-radius: $default-border-radius !default;
 

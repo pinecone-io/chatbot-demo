@@ -103,7 +103,9 @@ export default function Home() {
         <div className={'uniswap'} style={{ position: 'relative', height: '98vh', overflow: 'hidden' }}>
           <MainContainer>
             <ChatContainer>
-              <ConversationHeader>
+              <ConversationHeader
+                style={{ backgroundColor: 'var(--header-bg)'}}
+              >
                 <ConversationHeader.Actions></ConversationHeader.Actions>
                 <ConversationHeader.Content userName="Nema Chatbot" info={statusMessage} />
               </ConversationHeader>
@@ -131,7 +133,6 @@ export default function Home() {
               </MessageList>
               <MessageInput
                 placeholder="Type message here"
-                style={{borderColor: 'var(--border-color'}}
                 onSend={submit}
                 onChange={(e, text) => {
                   setText(text);
