@@ -1,0 +1,7 @@
+html {
+  font-family: "mediumllweb", "sans-serif";
+}
+p > a {
+  color: #192bd5;
+  text-decoration: underline;
+}
