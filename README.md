@@ -1,25 +1,22 @@
-# Pinecone Chatbot Demo
+# Supabase Langchain Chatbot Demo
 
 To run this demo, you need to have:
 
-1. A Pinecone account. If you don't have one, you can sign up for free at [pinecone.io](https://www.pinecone.io).
-2. An OpenAI account. If you don't have one, you can sign up for free at [openai.com](https://www.openai.com).
-3. An Ably account. If you don't have one, you can sign up for free at [ably.io](https://www.ably.io).
-4. A FingerprintJS account. If you don't have one, you can sign up for free at [fingerprintjs.com](https://www.fingerprintjs.com).
-5. A CockroachDB account. If you don't have one, you can sign up for free at [cockroachlabs.com](https://www.cockroachlabs.com).
+1. An OpenAI account. If you don't have one, you can sign up for free at [openai.com](https://www.openai.com).
+2. [Optional] A [Supabase account](https://app.supabase.io/register). Only needed if you want to use the hosted Supabase service.
 
 ## Setup
 
 1. Clone this repository
 
 ```bash
-git clone https://github.com/pinecone-io/chatbot-demo.git
+git clone git@github.com:thorwebdev/langchain-chatbot-demo.git
 ```
 
 2. Install dependencies
 
 ```bash
-cd chatbot-demo
+cd langchain-chatbot-demo
 npm install
 ```
 
@@ -33,10 +30,13 @@ supabase start
 
 ```
 OPENAI_API_KEY=...
-ABLY_API_KEY=...
-FINGERPRINTJS_API_KEY=...
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+SUPABASE_SERVICE_ROLE_KEY=...
 API_ROOT="http://localhost:3000"
 ```
+
+When running Supabase locally you can run `supabase status` to get the local credentials.
 
 6. [Optional] generate types (only needed after making db schema schanges)
 
