@@ -23,21 +23,25 @@ cd chatbot-demo
 npm install
 ```
 
-3. Create your Pinecone, OpenAI, Ably, FingerprintJS and Cockroach accounts and get your API keys
+3. Start Supabase
 
-4. Create your Pinecone index
+```bash
+supabase start
+```
 
 5. Create a `.env` file in the root directory of the project and add your API keys:
 
 ```
 OPENAI_API_KEY=...
-PINECONE_API_KEY=...
-PINECONE_ENVIRONMENT=...
-PINECONE_INDEX_NAME=...
-DATABASE_URL=...
 ABLY_API_KEY=...
 FINGERPRINTJS_API_KEY=...
 API_ROOT="http://localhost:3000"
+```
+
+6. [Optional] generate types (only needed after making db schema schanges)
+
+```bash
+npx supabase gen types typescript --local --schema public > src/types/supabase.ts
 ```
 
 ## Start the development server
