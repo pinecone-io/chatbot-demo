@@ -1,4 +1,4 @@
-import { OpenAI } from "langchain/llms";
+import { OpenAI } from "langchain/llms/openai";
 import { templates } from './templates'
 import { LLMChain, PromptTemplate } from "langchain";
 import Bottleneck from "bottleneck";
