@@ -5,7 +5,7 @@ To run this demo, you need to have:
 1. A Pinecone account. If you don't have one, you can sign up for free at [pinecone.io](https://www.pinecone.io).
 2. An OpenAI account. If you don't have one, you can sign up for free at [openai.com](https://www.openai.com).
 3. An Ably account. If you don't have one, you can sign up for free at [ably.io](https://www.ably.io).
-4. A FingerprintJS account. If you don't have one, you can sign up for free at [fingerprintjs.com](https://www.fingerprintjs.com).
+4. A FingerprintJS account. If you don't have one, you can sign up for free at [fingerprint.com](https://fingerprint.com).
 5. A CockroachDB account. If you don't have one, you can sign up for free at [cockroachlabs.com](https://www.cockroachlabs.com).
 
 ## Setup
