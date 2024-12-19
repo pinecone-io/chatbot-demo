@@ -29,7 +29,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.5",
-    "rehype-katex": "^6.0.2",
+    "rehype-katex": "^6.0.3",
     "remark-math": "^5.1.1",
     "sequelize": "^6.29.2",
     "sequelize-cockroachdb": "^6.0.5",
